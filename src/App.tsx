@@ -1,12 +1,13 @@
 import React from 'react';
+import {useRoutes} from "react-router-dom";
 
-import './app.scss';
+import {AuthLayout} from "components";
+import {Router} from "routes";
 
-import { LoginPage } from './pages';
+import './App.scss';
 
 function App(): React.ReactElement {
-
-    return <LoginPage></LoginPage>;
+    return <Router/>;
 }
 
-export { App };
+export default App;

@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import classNames from 'classnames';
 
-import './Button.scss';
+import styles from './Button.module.scss';
 
 interface IProps {
 	children?: React.ReactNode;
@@ -19,8 +19,8 @@ const Button: React.FC<IProps> = (props) => {
 	return (
 		<button
 			className={classNames({
-				button: true,
-				[`button_${buttonType}`]: true,
+				[styles.button]: true,
+				[styles[`button_${buttonType}`]]: true,
 				[className || '']: Boolean(className),
 			})}
 			{...rest}

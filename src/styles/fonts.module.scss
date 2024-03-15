@@ -1,0 +1,40 @@
+@import './colors.module.scss';
+
+// Primary font
+$primary-font: 'Basis Grotesque Pro', sans-serif;
+
+// Font weights
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+// Fonts
+@mixin header {
+  font-weight: $bold;
+  font-size: 1.875rem;
+  line-height: 2.4375rem;
+  letter-spacing: 0rem;
+  text-align: center;
+}
+
+@mixin b1 {
+  font-family: $primary-font;
+}
+
+@mixin b2 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-family: $primary-font;
+}
+
+@mixin weight_regular {
+  font-weight: $regular;
+}
+
+@mixin weight_medium {
+  font-weight: $medium;
+}
+
+@mixin weight_bold {
+  font-weight: $bold;
+}

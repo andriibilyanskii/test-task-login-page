@@ -1,0 +1,9 @@
+@import 'styles/colors.module.scss';
+
+.input {
+  @apply border-2 border-slate-300 rounded-md p-2 w-full p-0;
+
+  &:disabled {
+    @apply border-red-700;
+  }
+}

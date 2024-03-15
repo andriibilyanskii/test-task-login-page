@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import classNames from 'classnames';
 
-import './Input.scss';
+import styles from './Input.module.scss';
 
 interface IProps {
 	value: string;
@@ -19,7 +19,7 @@ const Input: React.FC<IProps> = (props) => {
 	return (
 		<input
 			className={classNames({
-				input: true,
+				[styles.input]: true,
 				[className || '']: Boolean(className),
 			})}
 			onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {

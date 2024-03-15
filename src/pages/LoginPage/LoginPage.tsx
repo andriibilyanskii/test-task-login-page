@@ -1,9 +1,17 @@
 import React from 'react';
 
-import './LoginPage.scss';
+import {Text} from "components";
+
+import styles from './LoginPage.module.scss';
+import AuthLayout from "../../components/auth/AuthLayout/AuthLayout";
 
 const LoginPage: React.FC = () => {
-	return <main className={'loginPage'}>Login</main>;
+    return (
+        // <AuthLayout title={'Log in to your account'} className={styles.loginPage}>
+        //     a
+        // </AuthLayout>
+        <div>Login</div>
+    );
 };
 
 export default LoginPage;

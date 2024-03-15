@@ -1,0 +1,14 @@
+@import 'styles/colors.module';
+
+.authLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  form {
+    max-width: 400px;
+  }
+}

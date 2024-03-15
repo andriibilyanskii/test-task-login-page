@@ -1,0 +1,10 @@
+@import 'styles/colors.module';
+@import 'styles/fonts.module.scss';
+
+.button {
+
+
+	&:disabled {
+		@apply opacity-50 transition-opacity;
+	}
+}
