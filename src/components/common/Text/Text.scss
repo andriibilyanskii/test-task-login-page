@@ -1,0 +1,16 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/fonts';
+
+.text {
+	&_p {
+		@include p;
+	}
+
+	&_s {
+		@include s;
+	}
+
+	&_header {
+		@include header;
+	}
+}

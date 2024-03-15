@@ -1,0 +1,23 @@
+@import '../../../styles/colors';
+@import '../../../styles/fonts';
+
+.button {
+	@apply rounded-xl outline-transparent border-transparent py-2 px-4 cursor-pointer flex justify-center align-middle gap-1 text-center font-normal uppercase;
+	width: fit-content;
+	font-family: $primary-font;
+	font-weight: $semibold;
+	background: $primary-blue;
+	color: $primary-white;
+
+	&_round {
+		@apply p-4 rounded-full;
+	}
+
+	&_transparent {
+		@apply p-2 bg-transparent text-gray-950;
+	}
+
+	&:disabled {
+		@apply opacity-50 transition-opacity;
+	}
+}
