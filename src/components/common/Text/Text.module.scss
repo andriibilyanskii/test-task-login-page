@@ -2,27 +2,31 @@
 @import 'styles/fonts.module.scss';
 
 .text {
-	&_b1 {
-		@include b1();
-	}
+  &_b1 {
+    @include b1();
+  }
 
-	&_b2 {
-		@include b2();
-	}
+  &_b2 {
+    @include b2();
+  }
 
-	&_header {
-		@include header();
-	}
+  &_b4 {
+    @include b4();
+  }
 
-	&-weight_regular {
-		@include weight_regular();
-	}
+  &_header {
+    @include header();
+  }
 
-	&-weight_medium {
-		@include weight_medium();
-	}
+  &-weight_regular {
+    @include weight_regular();
+  }
 
-	&-weight_bold {
-		@include weight_bold();
-	}
+  &-weight_medium {
+    @include weight_medium();
+  }
+
+  &-weight_bold {
+    @include weight_bold();
+  }
 }

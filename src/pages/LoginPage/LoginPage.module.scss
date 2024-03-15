@@ -1,4 +1,25 @@
 @import 'styles/colors.module';
 
 .loginPage {
+  &-loginWithSocialButtons {
+    @apply flex size-full align-middle gap-4;
+  }
+
+  &-divider {
+    @apply grid items-center size-full;
+
+    grid-template-columns: 1fr auto 1fr;
+    gap: 5px;
+    margin: 1.875rem 0;
+
+    &-line {
+      content: '';
+      border-bottom: 1px solid $gray-100;
+    }
+
+
+    &-text {
+      color: $gray-text;
+    }
+  }
 }

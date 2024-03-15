@@ -1,9 +1,14 @@
 @import 'styles/colors.module.scss';
 
 .input {
-	@apply border-2 border-slate-300 rounded-md p-2 w-full p-0;
+  @apply rounded-md p-3.5 size-full;
+  border: 1.2px solid $gray-200;
 
-	&:disabled {
-		@apply border-red-700;
-	}
+  &:disabled {
+    @apply border-red-700;
+  }
+
+  &::placeholder {
+    color: $gray-300;
+  }
 }
