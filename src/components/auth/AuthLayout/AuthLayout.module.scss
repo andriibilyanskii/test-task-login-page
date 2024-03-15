@@ -1,14 +1,19 @@
 @import 'styles/colors.module';
 
 .authLayout {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
 
-  form {
-    max-width: 400px;
-  }
+	&-title {
+		padding: 5rem 0 2.5rem 0;
+		display: inline-block;
+	}
+
+	form {
+		max-width: 400px;
+	}
 }

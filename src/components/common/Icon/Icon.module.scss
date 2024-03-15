@@ -1,13 +1,11 @@
 @import 'styles/colors.module.scss';
 
 .icon {
-  width: 1rem;
-  height: 1rem;
-  background-color: $gray-900;
-  padding: 0rem;
+	background-color: $gray-900;
+	@apply w-4 h-4 p-0;
 
-  &_colorful {
-    background-color: initial;
-    height: auto;
-  }
+	&_colorful {
+		background-color: initial;
+		height: auto;
+	}
 }
