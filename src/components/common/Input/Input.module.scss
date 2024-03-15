@@ -12,3 +12,11 @@
     color: $gray-300;
   }
 }
+
+.input-container {
+  @apply relative flex size-full;
+
+  .inputIcon {
+    @apply absolute top-3 right-3 z-10;
+  }
+}

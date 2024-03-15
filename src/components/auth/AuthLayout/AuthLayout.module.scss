@@ -17,10 +17,9 @@
 
   form {
     @apply size-full flex flex-col justify-center items-center;
-    gap: 25px;
-
+    
     button {
-      margin-top: 5px;
+      margin-top: 30px;
     }
   }
 }

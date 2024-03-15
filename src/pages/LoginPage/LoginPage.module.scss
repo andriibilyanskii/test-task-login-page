@@ -17,9 +17,13 @@
       border-bottom: 1px solid $gray-100;
     }
 
-
     &-text {
       color: $gray-text;
     }
+  }
+
+  &-forgotPasswordText {
+    text-align: right;
+    margin-top: 15px;
   }
 }
