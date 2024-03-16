@@ -1,16 +1,60 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { Text } from 'components';
+import { AnimateHeight, AuthLayout, Button, Icon, Input, Link, Text } from 'components';
 
 import styles from './ForgotPassword.module.scss';
+import { CONSTANTS } from '../../constants';
+import { fetchData, validateEmail } from '../../utils';
 
 const ForgotPassword: React.FC = () => {
+	const [email, setEmail] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
+	const history = useNavigate();
+
 	return (
-		<div className={styles['forgotPasswordPage']}>
-			<Text type={'b1'} fontWeight={'bold'}>
-				Forgot Password
-			</Text>
-		</div>
+		<AuthLayout title={'Forgot Password?'}>
+			<form
+				onSubmit={async (e: FormEvent<HTMLFormElement>) => {
+					e?.preventDefault();
+
+					await fetchData(
+						'/auth/password-reset',
+						true,
+						{
+							body: {
+								email,
+							},
+						},
+						{
+							setIsLoading,
+						}
+					);
+				}}
+			>
+				<Input
+					value={email}
+					onChange={setEmail}
+					placeholder={'Enter your email'}
+					type={'email'}
+					name={'email'}
+					disabled={isLoading}
+				/>
+
+				<Button type={'submit'} disabled={!validateEmail(email)}>
+					Send
+				</Button>
+
+				<Button
+					buttonType={'transparent'}
+					onClick={() => {
+						history(-1);
+					}}
+				>
+					Cancel
+				</Button>
+			</form>
+		</AuthLayout>
 	);
 };
 

@@ -5,6 +5,10 @@
   border: 1.2px solid $gray-200;
 
   &:disabled {
+    background: $gray-100;
+  }
+
+  &:invalid {
     @apply border-red-700;
   }
 
@@ -18,5 +22,9 @@
 
   .inputIcon {
     @apply absolute top-3 right-3 z-10;
+  }
+
+  .errorMessage {
+    @apply text-red-700;
   }
 }

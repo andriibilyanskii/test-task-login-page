@@ -10,46 +10,46 @@ $bold: 700;
 
 // Fonts
 @mixin header {
-  font-weight: $bold;
-  font-size: 1.875rem;
-  line-height: 2.4375rem;
-  letter-spacing: 0rem;
-  text-align: center;
+	font-weight: $bold;
+	font-size: 1.875rem;
+	line-height: 2.4375rem;
+	letter-spacing: 0rem;
+	text-align: center;
 }
 
 @mixin b1 {
-  font-size: 0.9375rem;
-  font-family: $primary-font;
-  line-height: 1.25rem;
+	font-size: 0.9375rem;
+	font-family: $primary-font;
+	line-height: 1.25rem;
 }
 
 @mixin b2 {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-family: $primary-font;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-family: $primary-font;
 }
 
 @mixin b4 {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-family: $primary-font;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-family: $primary-font;
 }
 
-
 @mixin defaultButtonFont {
-  font-size: 1rem;
-  line-height: 1.3125rem;
-  font-family: $primary-font;
+	font-size: 1rem;
+	line-height: 1.3125rem;
+	font-family: $primary-font;
+	font-weight: $medium;
 }
 
 @mixin weight_regular {
-  font-weight: $regular;
+	font-weight: $regular;
 }
 
 @mixin weight_medium {
-  font-weight: $medium;
+	font-weight: $medium;
 }
 
 @mixin weight_bold {
-  font-weight: $bold;
+	font-weight: $bold;
 }

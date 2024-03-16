@@ -53,6 +53,6 @@ Formats code with Prettier.
 
 Checks code with Eslint
 
-### `npm run eslint`
+### `npm run eslint:fix`
 
 Fixes code with Eslint
