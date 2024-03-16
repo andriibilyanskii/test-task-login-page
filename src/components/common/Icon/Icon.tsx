@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import classNames from 'classnames';
 
-import './Icon.scss';
+import styles from './Icon.module.scss';
 
 interface IProps {
 	src: string;
@@ -17,20 +17,42 @@ interface IProps {
 		| '2.5rem'
 		| '4rem'
 		| '8rem'
+		| '11rem'
 		| '12rem';
 	className?: string;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	padding?: string;
 	style?: CSSProperties;
+	isColorful?: boolean;
 }
 
 const Icon: React.FC<IProps> = (props) => {
-	const { src, color, size, padding, className, style, ...rest } = props;
+	const { src, color, size, padding, className, style, isColorful, ...rest } = props;
+
+	if (isColorful) {
+		return (
+			<img
+				src={src}
+				className={classNames({
+					[styles.icon]: true,
+					[styles.icon_colorful]: true,
+					[className || '']: Boolean(className),
+				})}
+				style={{
+					width: size || '',
+					cursor: props?.onClick ? 'pointer' : 'initial',
+					padding,
+					...style,
+				}}
+				{...rest}
+			/>
+		);
+	}
 
 	return (
 		<div
 			className={classNames({
-				icon: true,
+				[styles.icon]: true,
 				[className || '']: Boolean(className),
 			})}
 			style={{
@@ -46,11 +68,6 @@ const Icon: React.FC<IProps> = (props) => {
 			{...rest}
 		/>
 	);
-};
-
-Icon.defaultProps = {
-	className: '',
-	padding: '0rem',
 };
 
 export default Icon;

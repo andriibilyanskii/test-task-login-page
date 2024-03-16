@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import './app.scss';
+import { Router } from 'routes';
+import { AppContext } from 'context';
+import { IUserInfo } from 'interfaces';
 
-import { LoginPage } from './pages';
+import './App.scss';
 
 function App(): React.ReactElement {
-
-    return <LoginPage></LoginPage>;
+	const [email, setEmail] = useState('');
+	const [userInfo, setUserInfo] = useState<IUserInfo>({} as IUserInfo);
+	return (
+		<AppContext.Provider
+			value={{
+				email,
+				setEmail,
+				userInfo,
+				setUserInfo,
+			}}
+		>
+			<Router />
+		</AppContext.Provider>
+	);
 }
 
-export { App };
+export default App;

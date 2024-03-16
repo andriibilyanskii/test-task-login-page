@@ -1,28 +1,30 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Text.scss';
+import styles from './Text.module.scss';
 
 interface IProps {
-	type: 'p' | 's' | 'header';
+	type: 'b1' | 'b2' | 'b4' | 'header';
+	fontWeight?: 'regular' | 'medium' | 'bold';
 	className?: string;
 	children: React.ReactNode;
 }
 
 const Text: React.FC<IProps> = (props) => {
-	const { type, className, children, ...rest } = props;
+	const { type, className, fontWeight = 'regular', children, ...rest } = props;
 
-	return (
-		<p
-			className={classNames({
-				text: true,
-				[`text_${type}`]: true,
+	return React.createElement(
+		type === 'header' ? 'h2' : 'p',
+		{
+			className: classNames({
+				[styles.text]: true,
+				[styles[`text_${type}`]]: true,
+				[styles[`text-weight_${fontWeight}`]]: type !== 'header',
 				[className || '']: className,
-			})}
-			{...rest}
-		>
-			{children}
-		</p>
+			}),
+			...rest,
+		},
+		children
 	);
 };
 
