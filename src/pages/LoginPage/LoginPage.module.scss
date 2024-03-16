@@ -3,6 +3,10 @@
 .loginPage {
 	&-loginWithSocialButtons {
 		@apply flex size-full align-middle gap-4;
+
+		@media screen and (max-width: 300px) {
+			@apply flex-col;
+		}
 	}
 
 	&-divider {

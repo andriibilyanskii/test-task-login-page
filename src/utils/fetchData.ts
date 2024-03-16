@@ -1,56 +1,77 @@
 import axios from 'axios';
 
-import { notificationToastFunc } from 'utils';
-import { CONSTANTS } from '../constants';
+import {notificationToastFunc} from 'utils';
+import {CONSTANTS} from '../constants';
 
 async function fetchData<Type>(
-	url: string,
-	defaultAPI?: boolean,
-	params?: {
-		method?: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE';
-		body?: Type;
-	},
-	other?: {
-		setIsLoading?: (e: boolean) => void;
-	}
+    url: string,
+    defaultAPI?: boolean,
+    params?: {
+        method?: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE';
+        body?: Type;
+    },
+    other?: {
+        setIsLoading?: (e: boolean) => void;
+        showSuccessMessage?: boolean;
+    }
 ) {
-	other?.setIsLoading?.(true);
+    other?.setIsLoading?.(true);
 
-	const _url = CONSTANTS.API_ENDPOINT + CONSTANTS.API_VERSION + url;
+    const _url = CONSTANTS.API_ENDPOINT + CONSTANTS.API_VERSION + url;
 
-	return await axios({
-		method: params?.method || 'post',
-		url: defaultAPI ? _url : url,
-		headers: { 'Content-Type': 'application/json' },
-		...(params?.body
-			? {
-					data: params?.body,
-				}
-			: {}),
-	})
-		.then((res) => ({
-			data: res.data,
-			status: res?.status,
-		}))
-		.then(({ data, status }) => {
-			if (status !== 200) {
-				notificationToastFunc({
-					type: 'error',
-					text: data?.message,
-				});
-			}
+    return await axios({
+        method: params?.method || 'post',
+        url: defaultAPI ? _url : url,
+        headers: {'Content-Type': 'application/json'},
+        ...(params?.body
+            ? {
+                data: params?.body,
+            }
+            : {}),
+    })
+        .then((res) => ({
+            data: res.data,
+            status: res?.status,
+        }))
+        .then(({data, status}) => {
+            if (status !== 200) {
+                notificationToastFunc({
+                    type: 'error',
+                    text: data?.message,
+                });
+            }
 
-			return data;
-		})
-		.catch((error) => {
-			notificationToastFunc({
-				type: 'error',
-				text: String(error.response.data.detail),
-			});
-		})
-		.finally(() => {
-			other?.setIsLoading?.(false);
-		});
+            if (other?.showSuccessMessage) {
+                notificationToastFunc({
+                    type: 'success',
+                });
+            }
+
+            return data;
+        })
+        .catch((error) => {
+            console.error(error);
+
+            const detail = error.response.data.detail;
+            const text =
+                typeof detail === 'string'
+                    ? detail
+                    : detail?.map((e: any) => Object.values(e)?.join(' '))?.join(' | ');
+
+            notificationToastFunc({
+                type: 'error',
+                text: text,
+            });
+
+            return {
+                status: error?.response?.status,
+                statusText: text,
+                detail,
+            };
+        })
+        .finally(() => {
+            other?.setIsLoading?.(false);
+        });
 }
 
-export { fetchData };
+export {fetchData};

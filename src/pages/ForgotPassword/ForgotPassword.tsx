@@ -28,6 +28,7 @@ const ForgotPassword: React.FC = () => {
 						},
 						{
 							setIsLoading,
+							showSuccessMessage: true,
 						}
 					);
 				}}
@@ -39,6 +40,7 @@ const ForgotPassword: React.FC = () => {
 					type={'email'}
 					name={'email'}
 					disabled={isLoading}
+					errorMessage={!validateEmail(email) && email ? 'Wrong email format' : ''}
 				/>
 
 				<Button type={'submit'} disabled={!validateEmail(email)}>
