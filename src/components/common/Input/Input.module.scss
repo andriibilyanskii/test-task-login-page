@@ -1,4 +1,5 @@
 @import 'styles/colors.module.scss';
+@import 'styles/fonts.module.scss';
 
 .input {
 	@apply rounded-md p-3.5 size-full;
@@ -24,7 +25,17 @@
 		@apply absolute top-3 right-3 z-10;
 	}
 
+	p {
+		@include font15;
+	}
+
 	.errorMessage {
 		@apply text-red-700;
+	}
+
+	&_withLabel {
+		.inputIcon {
+			@apply top-10;
+		}
 	}
 }

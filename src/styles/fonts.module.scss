@@ -42,6 +42,13 @@ $bold: 700;
 	font-weight: $medium;
 }
 
+@mixin font15 {
+	font-size: 15px;
+	line-height: 1.3125rem;
+	font-family: $primary-font;
+	font-weight: $medium;
+}
+
 @mixin weight_regular {
 	font-weight: $regular;
 }
